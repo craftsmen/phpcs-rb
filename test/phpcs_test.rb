@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'phpcs'
+require 'minitest/pride'
 
 class PhpcsTest < Minitest::Test
   def test_foo
