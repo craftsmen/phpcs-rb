@@ -19,14 +19,15 @@ module Phpcs
       out = JSON.load(stdout.read)
 
       if out['totals']['errors'] > 0
-        parse_matches(file.path, out)
+        parse_matches(out)
       else
         []
       end
     end
 
-    def parse_matches(path, body)
-      errors = body['files']["/private#{path}"]
+    def parse_matches(body)
+      path = body['files'].keys.first
+      errors = body['files'][path]
       matches = []
 
       errors['messages'].each do |error|
