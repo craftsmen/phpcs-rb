@@ -1,0 +1,15 @@
+language: php
+
+php: 5.4
+
+before_install:
+  - pyrus install pear/PHP_CodeSniffer
+  - phpenv rehash
+
+script:
+  - gem update bundler
+  - bundle install
+  - bundle exec rake
+
+notifications:
+  email: false
